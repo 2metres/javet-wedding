@@ -8,6 +8,8 @@ import {
   Head,
 } from 'react-static'
 
+import styles from './module.scss'
+
 const Home = ({
   site,
   homepage,
@@ -17,20 +19,20 @@ const Home = ({
     <Head>
       <title>{ site.title }</title>
     </Head>
-    <header className="Home__header">
+    <header className={styles.header}>
       <h1>{ homepage.title }</h1>
       <Markdown>{ homepage.body }</Markdown>
     </header>
-    <main className="Home__content">
+    <main className={styles.content}>
       <div className="row">
         { events.map(event => (
-          <section
+          <div
             key={`${event.slug}__${event.id}`}
             className="col-sm-6 col-md-4 col-lg-3"
           >
             <div>{ event.title }</div>
             <div>{ event.time }</div>
-          </section>))
+          </div>))
         }
       </div>
     </main>

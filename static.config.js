@@ -4,16 +4,20 @@ import { request } from 'graphql-request'
 import webpackConfig from './webpack.config'
 
 const query = `{
-  events: allEvents {
-    icon
-    id
-    time
+  nav: allNavs {
     title
     slug
   }
   homepages: allHomepages {
     title
     body
+  }
+  events: allEvents {
+    icon
+    id
+    time
+    title
+    slug
   }
 }`
 
@@ -25,6 +29,7 @@ export default {
   }),
   getRoutes: async () => {
     const {
+      nav,
       homepages,
       events,
     } = await request(process.env.GRAPHCMS_API, query)
@@ -36,6 +41,7 @@ export default {
         getProps: () => ({
           homepage: homepages[0],
           events,
+          nav,
         }),
       },
       {
