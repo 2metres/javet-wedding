@@ -1,7 +1,11 @@
 {
   "name": "javette-wedding",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2metres/javette-wedding"
+  },
   "license": "MIT",
   "scripts": {
     "start": "react-static start",
@@ -9,17 +13,19 @@
     "serve": "serve dist -p 3000"
   },
   "dependencies": {
-    "axios": "^0.16.2",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "graphql-request": "^1.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
-    "react-static": "^4.3.4"
+    "react-static": "^4.3.4",
+    "recompose": "^0.26.0"
   },
   "devDependencies": {
     "css-loader": "^0.28.7",
-    "eslint-config-react-tools": "1.x.x",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "dotenv": "^4.0.0",
+    "eslint-config-react-tools": "^1.0.10",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "serve": "^6.1.0",

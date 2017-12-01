@@ -1,34 +1,33 @@
-import axios from 'axios'
+import 'dotenv/config'
+import { request } from 'graphql-request'
+
 import webpackConfig from './webpack.config'
+
+const query = `{
+  events: allEvents {
+    id
+    slug
+    title
+    time
+  }
+}`
 
 export default {
   getSiteProps: () => ({
-    title: 'React Static',
+    site: {
+      title: 'Jack & Yvette’s Wedding',
+    },
   }),
   getRoutes: async () => {
     const {
-      data: posts,
-    } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+      events,
+    } = await request(process.env.GRAPHCMS_API, query)
 
     return [
       {
         path: '/',
         component: 'src/containers/Home',
-      },
-      {
-        path: '/about',
-        component: 'src/containers/About',
-      },
-      {
-        path: '/blog',
-        component: 'src/containers/Blog',
-        getProps: () => ({ posts }),
-
-        children: posts.map(post => ({
-          path: `/post/${post.id}`,
-          component: 'src/containers/Post',
-          getProps: () => ({ post }),
-        })),
+        getProps: () => ({ events }),
       },
       {
         is404: true,
