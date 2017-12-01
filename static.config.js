@@ -1,11 +1,15 @@
 import axios from 'axios'
+import webpackConfig from './webpack.config'
 
 export default {
   getSiteProps: () => ({
     title: 'React Static',
   }),
   getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const {
+      data: posts,
+    } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+
     return [
       {
         path: '/',
@@ -18,15 +22,12 @@ export default {
       {
         path: '/blog',
         component: 'src/containers/Blog',
-        getProps: () => ({
-          posts,
-        }),
+        getProps: () => ({ posts }),
+
         children: posts.map(post => ({
           path: `/post/${post.id}`,
           component: 'src/containers/Post',
-          getProps: () => ({
-            post,
-          }),
+          getProps: () => ({ post }),
         })),
       },
       {
@@ -35,4 +36,5 @@ export default {
       },
     ]
   },
+  webpack: [webpackConfig],
 }

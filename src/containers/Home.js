@@ -1,11 +1,10 @@
 import React from 'react'
 import { getSiteProps } from 'react-static'
-//
-import logoImg from '../logo.png'
 
-export default getSiteProps(() => (
+const Home = () => (
   <div>
-    <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
-    <img src={logoImg} alt="" />
+    <h1>Welcome Home!</h1>
   </div>
-))
+)
+
+export default getSiteProps(Home)

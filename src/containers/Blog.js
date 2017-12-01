@@ -1,9 +1,7 @@
-
 import React from 'react'
 import { getRouteProps, Link } from 'react-static'
-//
 
-export default getRouteProps(({ posts }) => (
+const Blog = ({ posts }) => (
   <div>
     <h1>It's blog time.</h1>
     <br />
@@ -16,4 +14,6 @@ export default getRouteProps(({ posts }) => (
       ))}
     </ul>
   </div>
-))
+)
+
+export default getRouteProps(Blog)
