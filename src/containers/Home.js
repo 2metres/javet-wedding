@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames/bind'
 import { compose } from 'recompose'
 import Markdown from 'react-markdown'
 import {
@@ -27,7 +26,7 @@ const Home = ({
         { events.map(event => (
           <section
             key={`${event.slug}__${event.id}`}
-            className={classNames('col-sm-6', 'col-md-4', 'col-lg-3')}
+            className="col-sm-6 col-md-4 col-lg-3"
           >
             <div>{ event.title }</div>
             <div>{ event.time }</div>
