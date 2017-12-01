@@ -14,9 +14,12 @@
     "start": "react-static start"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "classnames": "^2.2.5",
     "graphql-request": "^1.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-markdown": "^3.1.0",
     "react-router": "^4.2.0",
     "react-static": "^4.3.4",
     "recompose": "^0.26.0"

@@ -5,10 +5,15 @@ import webpackConfig from './webpack.config'
 
 const query = `{
   events: allEvents {
+    icon
     id
-    slug
-    title
     time
+    title
+    slug
+  }
+  homepages: allHomepages {
+    title
+    body
   }
 }`
 
@@ -20,6 +25,7 @@ export default {
   }),
   getRoutes: async () => {
     const {
+      homepages,
       events,
     } = await request(process.env.GRAPHCMS_API, query)
 
@@ -27,7 +33,10 @@ export default {
       {
         path: '/',
         component: 'src/containers/Home',
-        getProps: () => ({ events }),
+        getProps: () => ({
+          homepage: homepages[0],
+          events,
+        }),
       },
       {
         is404: true,
