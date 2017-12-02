@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { getRouteProps, Link } from 'react-static'
 
 import styles from './module.scss'
@@ -20,5 +21,14 @@ const Nav = ({ nav }) => (
     </div>
   </nav>
 )
+
+Nav.propTypes = {
+  nav: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+      title: PropTypes.string,
+    }),
+  ).isRequired,
+}
 
 export default getRouteProps(Nav)

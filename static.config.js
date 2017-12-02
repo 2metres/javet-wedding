@@ -12,7 +12,7 @@ const query = `{
     title
     body
   }
-  events: allEvents {
+  events: allEvents(orderBy: order_ASC) {
     icon
     id
     time

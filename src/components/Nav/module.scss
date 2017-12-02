@@ -1,12 +1,14 @@
 @import '../../styles/variables';
 
 .root {
+  padding: $base-spacing;
 }
 
 .list {
   margin: 0;
   padding-left: 0;
   list-style: none;
+  text-align: center;
 
   @media (min-width: $breakpoint-sm) {
     display: flex;

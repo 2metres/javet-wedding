@@ -8,6 +8,8 @@ import {
   Head,
 } from 'react-static'
 
+import { Timeline } from '../../components'
+
 import styles from './module.scss'
 
 const Home = ({
@@ -22,19 +24,10 @@ const Home = ({
     <header className={styles.header}>
       <h1>{ homepage.title }</h1>
       <Markdown>{ homepage.body }</Markdown>
+      <button>RSVP NOW!</button>
     </header>
     <main className={styles.content}>
-      <div className="row">
-        { events.map(event => (
-          <div
-            key={`${event.slug}__${event.id}`}
-            className="col-sm-6 col-md-4 col-lg-3"
-          >
-            <div>{ event.title }</div>
-            <div>{ event.time }</div>
-          </div>))
-        }
-      </div>
+      <Timeline events={events} />
     </main>
   </div>
 )
