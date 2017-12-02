@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "react-static build",
-    "deploy": "npm build && firebase deploy",
+    "deploy": "npm run build && firebase deploy",
     "serve": "serve dist -p 3000",
     "start": "react-static start"
   },
