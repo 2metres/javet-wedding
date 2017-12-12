@@ -1,4 +1,38 @@
+@import "../../styles/variables";
+
+.button {
+  background-color: $action-background;
+  font-family: $heading-font;
+  color: $action-color;
+  padding: 1rem 3rem;
+  margin-top: 1rem;
+  font-size: 150%;
+  font-weight: 800;
+  outline: 2px white solid;
+  outline-offset: -5px;
+  cursor: pointer;
+  border: none;
+}
+
 .header {
+  text-align: center;
+  border: 0.5rem solid $action-background;
+  padding: calc(2vw + 2rem) 1rem;
+}
+
+.title {
+  font-size: 300%;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  &:after {
+    content: '';
+    display: block;
+    border-bottom: 0.25rem solid $action-background;
+    margin: 1rem auto 2rem;
+    width: 15%;
+  }
 }
 
 .content {

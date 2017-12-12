@@ -3,26 +3,26 @@ import { request } from 'graphql-request'
 
 import webpackConfig from './webpack.config'
 
-const query = `{
-  nav: allNavs {
-    title
-    slug
-  }
-  homepages: allHomepages {
-    title
-    body
-  }
-  events: allEvents(orderBy: order_ASC) {
-    icon
-    id
-    time
-    title
-    slug
-  }
-}`
+const query =
+ `{
+    nav: allNavs {
+      title
+      slug
+    }
+    homepages: allHomepages {
+      title
+      body
+    }
+    events: allEvents(orderBy: order_ASC) {
+      icon
+      id
+      time
+      title
+      slug
+    }
+  }`
 
 export default {
-  siteRoot: 'https://javetwedding.com',
   getSiteProps: () => ({
     site: {
       title: 'Jack & Yvette’s Wedding',

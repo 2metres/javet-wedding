@@ -8,7 +8,10 @@ import {
   Head,
 } from 'react-static'
 
-import { Timeline } from '../../components'
+import {
+  Form,
+  Timeline,
+} from '../../components'
 
 import styles from './module.scss'
 
@@ -21,10 +24,11 @@ const Home = ({
     <Head>
       <title>{ site.title }</title>
     </Head>
+    <Form />
     <header className={styles.header}>
-      <h1>{ homepage.title }</h1>
+      <h1 className={styles.title}>{ homepage.title }</h1>
       <Markdown>{ homepage.body }</Markdown>
-      <button>RSVP NOW!</button>
+      <button className={styles.button}>RSVP NOW!</button>
     </header>
     <main className={styles.content}>
       <Timeline events={events} />
