@@ -10,7 +10,7 @@ const Nav = ({ nav }) => (
       <ol className={styles.list}>
         {
           nav.map(item => (
-            <li className={styles.item}>
+            <li key={item.slug} className={styles.item}>
               <Link className={styles.link} to={`#${item.slug}`} >
                 {item.title}
               </Link>
