@@ -13,6 +13,12 @@ const query =
       title
       body
     }
+    questions: allQuestions(orderBy: order_ASC) {
+      slug
+      prompt
+      hint
+      format
+    }
     events: allEvents(orderBy: order_ASC) {
       icon
       id
@@ -31,6 +37,7 @@ export default {
   getRoutes: async () => {
     const {
       nav,
+      questions,
       homepages,
       events,
     } = await request(process.env.GRAPHCMS_API, query)
@@ -41,6 +48,7 @@ export default {
         component: 'src/containers/Home',
         getProps: () => ({
           homepage: homepages[0],
+          questions,
           events,
           nav,
         }),
