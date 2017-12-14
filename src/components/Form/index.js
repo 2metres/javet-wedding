@@ -1,32 +1,42 @@
 import React, { Component } from 'react'
-import { getRouteProps } from 'react-static'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import classNames from 'classnames/bind'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import * as actions from '../../actions'
 
 import styles from './module.scss'
 
 class Form extends Component {
   state = {}
 
-  handleInput = (slug, value) => {
-    this.setState({ [slug]: value })
+  handleInput = (key, value) => {
+    this.setState({ [key]: value })
   }
 
   handleSubmit = () => {
-    this.props.mutate({ variables: this.state }).catch(err => console.log(err))
+    this.props.mutate({
+      variables: this.props,
+    }).then(() => actions.toggleForm())
+      .catch(err => console.warn(err))
   }
 
   render () {
+    const { questions } = this.props
+
     return (
       <form className={styles.root}>
         {
-          this.props.questions.map(question => (
-            <div key={`${question.slug}--${question.format}`} className="form-group">
+          questions.map(question => (
+            <div
+              key={`${question.slug}--${question.format}`}
+              className="form-group"
+            >
               <h3 className={styles.title}>{ question.prompt }</h3>
-              { question.hint &&
-                <div><small>{ question.hint }</small></div>
-              }
+              { question.hint && <div><small>{ question.hint }</small></div> }
+
               { question.format === 'Textarea' &&
                 <textarea
                   id={question.slug}
@@ -106,6 +116,18 @@ const createResponse = gql`
   }
 `
 
+const mapStateToProps = state => ({
+  form: state.form,
+  ui: state.ui,
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch),
+})
+
 const FormWithData = graphql(createResponse)(Form)
 
-export default getRouteProps(FormWithData)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FormWithData)

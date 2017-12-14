@@ -14,6 +14,7 @@ const query =
       body
     }
     questions: allQuestions(orderBy: order_ASC) {
+      order
       slug
       prompt
       hint

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { compose } from 'recompose'
 import Markdown from 'react-markdown'
@@ -7,6 +7,9 @@ import {
   getSiteProps,
   Head,
 } from 'react-static'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
 
 import {
   Form,
@@ -15,26 +18,42 @@ import {
 
 import styles from './module.scss'
 
-const Home = ({
-  site,
-  homepage,
-  events,
-}) => (
-  <div className="container">
-    <Head>
-      <title>{ site.title }</title>
-    </Head>
-    <Form />
-    <header className={styles.header}>
-      <h1 className={styles.title}>{ homepage.title }</h1>
-      <Markdown>{ homepage.body }</Markdown>
-      <button className={styles.button}>RSVP NOW!</button>
-    </header>
-    <main className={styles.content}>
-      <Timeline events={events} />
-    </main>
-  </div>
-)
+class Home extends Component {
+  render () {
+    const {
+      actions,
+      questions,
+      homepage,
+      events,
+      ui,
+      site,
+    } = this.props
+
+    return (
+      <div className="container">
+        <Head>
+          <title>{ site.title }</title>
+        </Head>
+        <header className={styles.header}>
+          <h1 className={styles.title}>{ homepage.title }</h1>
+          <Markdown>{ homepage.body }</Markdown>
+          { !ui.get('showForm') &&
+            <button
+              className={styles.button}
+              onClick={() => actions.toggleForm()}
+            >
+              RSVP NOW!
+            </button>
+          }
+          { ui.get('showForm') && <Form questions={questions} /> }
+        </header>
+        <main className={styles.content}>
+          <Timeline events={events} />
+        </main>
+      </div>
+    )
+  }
+}
 
 Home.defaultProps = {
   events: [],
@@ -57,7 +76,16 @@ Home.propTypes = {
   ),
 }
 
+const mapStateToProps = state => ({
+  ui: state.ui,
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch),
+})
+
 export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
   getSiteProps,
   getRouteProps,
 )(Home)
