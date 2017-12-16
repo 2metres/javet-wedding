@@ -37,7 +37,7 @@ class Home extends Component {
         <header className={styles.header}>
           <h1 className={styles.title}>{ homepage.title }</h1>
           <Markdown>{ homepage.body }</Markdown>
-          { !ui.get('showForm') &&
+          { !ui.showForm &&
             <button
               className={styles.button}
               onClick={() => actions.toggleForm()}
@@ -45,7 +45,7 @@ class Home extends Component {
               RSVP NOW!
             </button>
           }
-          { ui.get('showForm') && <Form questions={questions} /> }
+          { ui.showForm && <Form questions={questions} /> }
         </header>
         <main className={styles.content}>
           <Timeline events={events} />

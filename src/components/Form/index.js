@@ -10,10 +10,9 @@ import * as actions from '../../actions'
 import styles from './module.scss'
 
 class Form extends Component {
-  state = {}
-
   handleInput = (key, value) => {
-    this.setState({ [key]: value })
+    console.log(actions.setFormData({ key, value }))
+    actions.setFormData({ key, value })
   }
 
   handleSubmit = () => {
@@ -24,7 +23,10 @@ class Form extends Component {
   }
 
   render () {
-    const { questions } = this.props
+    const {
+      questions,
+      form,
+    } = this.props
 
     return (
       <form className={styles.root}>
@@ -42,6 +44,7 @@ class Form extends Component {
                   id={question.slug}
                   onChange={e => this.handleInput(question.slug, e.target.value)}
                   className="form-control"
+                  value={form[question.slug]}
                 />
               }
               { question.format === 'TextInput' &&
@@ -49,6 +52,7 @@ class Form extends Component {
                   id={question.slug}
                   onChange={e => this.handleInput(question.slug, e.target.value)}
                   className="form-control"
+                  value={form[question.slug]}
                   type="text"
                 />
               }
@@ -59,7 +63,7 @@ class Form extends Component {
                     onClick={() => this.handleInput(question.slug, true)}
                     className={classNames.bind(styles)({
                       'btn': true,
-                      'btn-primary': this.state[question.slug] === true,
+                      // 'btn-primary': this.state[question.slug] === true,
                     })}
                   >
                     Yes
@@ -69,7 +73,7 @@ class Form extends Component {
                     onClick={() => this.handleInput(question.slug, false)}
                     className={classNames.bind(styles)({
                       'btn': true,
-                      'btn-primary': this.state[question.slug] === false,
+                      // 'btn-primary': this.state[question.slug] === false,
                     })}
                   >
                     No
@@ -118,7 +122,6 @@ const createResponse = gql`
 
 const mapStateToProps = state => ({
   form: state.form,
-  ui: state.ui,
 })
 
 const mapDispatchToProps = dispatch => ({
