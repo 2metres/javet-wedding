@@ -35,7 +35,6 @@ const Form = ({
             className="form-group"
           >
             <h3 className={styles.title}>{ question.prompt }</h3>
-            { question.hint && <div><small>{ question.hint }</small></div> }
             { question.format === 'Textarea' &&
               <textarea
                 id={question.slug}
@@ -77,6 +76,7 @@ const Form = ({
                 </button>
               </div>
             }
+            { question.hint && <small className="text-muted">{ question.hint }</small> }
           </div>
         ))
       }
