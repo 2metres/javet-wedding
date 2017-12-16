@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import classNames from 'classnames/bind'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 
 import * as actions from '../../actions'
 
@@ -13,6 +11,7 @@ class Form extends Component {
   state = {}
 
   handleInput = (key, value) => {
+    console.log(key, value)
     this.setState({ [key]: value })
   }
 
@@ -116,18 +115,4 @@ const createResponse = gql`
   }
 `
 
-const mapStateToProps = state => ({
-  form: state.form,
-  ui: state.ui,
-})
-
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch),
-})
-
-const FormWithData = graphql(createResponse)(Form)
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(FormWithData)
+export default graphql(createResponse)(Form)

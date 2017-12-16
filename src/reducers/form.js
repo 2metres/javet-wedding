@@ -1,15 +1,14 @@
-const initialState = {
-  attending: null,
-}
+import { handleActions } from 'redux-actions'
 
-export default (state = initialState, action = {}) => {
-  switch (action.type) {
-    case 'attending':
-      return {
-        ...state,
-        attending: action.payload,
-      }
-    default:
-      return state
-  }
-}
+const formReducer = handleActions(
+  {
+    setFormData (state, action) {
+      console.log(state, action)
+      return { ...state, [action.payload.key]: action.payload.value }
+    },
+  },
+  // initialState
+  {},
+)
+
+export default formReducer
