@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader'
 
 import './index.scss'
 
-import App from './containers/App'
+import App from './App'
 
 export default App
 
@@ -21,8 +21,8 @@ if (typeof document !== 'undefined') {
   render(App)
 
   if (module.hot) {
-    module.hot.accept('./containers/App', () => {
-      render(require('./containers/App').default)
+    module.hot.accept('./App', () => {
+      render(require('./App').default)
     })
   }
 }

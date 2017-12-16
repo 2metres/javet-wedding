@@ -6,8 +6,8 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { createStore } from 'redux'
 
-import reducers from '../reducers'
-import { Nav } from '../components'
+import reducers from './reducers'
+import { Nav } from './components'
 
 const store = createStore(
   reducers,
