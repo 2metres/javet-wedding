@@ -11,13 +11,20 @@ import styles from './module.scss'
 
 class Form extends Component {
   handleInput = (key, value) => {
-    console.log(actions.setFormData({ key, value }))
+    const { actions } = this.props
+
     actions.setFormData({ key, value })
   }
 
   handleSubmit = () => {
-    this.props.mutate({
-      variables: this.props,
+    const {
+      form,
+      actions,
+      mutate,
+    } = this.props
+
+    mutate({
+      variables: form,
     }).then(() => actions.toggleForm())
       .catch(err => console.warn(err))
   }
@@ -63,7 +70,7 @@ class Form extends Component {
                     onClick={() => this.handleInput(question.slug, true)}
                     className={classNames.bind(styles)({
                       'btn': true,
-                      // 'btn-primary': this.state[question.slug] === true,
+                      'btn-primary': form[question.slug] === true,
                     })}
                   >
                     Yes
@@ -73,7 +80,7 @@ class Form extends Component {
                     onClick={() => this.handleInput(question.slug, false)}
                     className={classNames.bind(styles)({
                       'btn': true,
-                      // 'btn-primary': this.state[question.slug] === false,
+                      'btn-primary': form[question.slug] === false,
                     })}
                   >
                     No
@@ -85,7 +92,7 @@ class Form extends Component {
         }
         <button
           className="btn btn-primary"
-          onClick={this.handleSubmit}
+          onClick={() => this.handleSubmit()}
           type="button"
         >
           Click Me!
