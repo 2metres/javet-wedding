@@ -34,9 +34,10 @@ const Form = ({
 
   return (
     <form className={styles.root}>
+      <h2>RSVP Now</h2>
       {
         questions.map(q => (
-          <div key={`${q.slug}--${q.format}`}>
+          <div className={styles.question} key={`${q.slug}--${q.format}`}>
             { form.dietaryRestrictions && q.format === 'Textarea' &&
               <Textarea
                 action={handleInput}
@@ -67,7 +68,7 @@ const Form = ({
         onClick={() => handleSubmit()}
         type="button"
       >
-        Click Me!
+        Send my RSVP
       </button>
     </form>
   )

@@ -6,17 +6,15 @@ import styles from './module.scss'
 
 const Timeline = ({ events }) => (
   <section id="timeline" className={styles.root}>
-    <div className="row">
-      { events.map((event, i) => (
-        <div
-          className={styles.event}
-          key={`${event.slug}__${event.id}`}
-        >
-          <h3 className={styles.eventTitle}>{ event.title }</h3>
-          <div className={styles.eventTime}>{ event.time }</div>
-        </div>))
-      }
-    </div>
+    { events.map(event => (
+      <div
+        className={styles.event}
+        key={`${event.slug}__${event.id}`}
+      >
+        <h3 className={styles.eventTitle}>{ event.title }</h3>
+        <div className={styles.eventTime}>{ event.time }</div>
+      </div>))
+    }
   </section>
 )
 

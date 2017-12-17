@@ -2,10 +2,34 @@
 
 .root {
   background-color: $accent-color;
-  padding: 2rem;
+  padding: 3rem 2rem;
+  font-size: 150%;
+  text-align: center;
   color: white;
   z-index: 3;
-  font-size: 150%;
+
+  @media(min-width: $breakpoint-md) {
+    padding: 3rem;
+  }
+}
+
+.question {
+  max-width: $breakpoint-md;
+  margin: 0 auto;
+
+  &:after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    max-width: 6rem;
+    border-bottom: 4px solid white;
+  }
+  &:last-of-type,
+  &:empty {
+    &:after {
+      display: none;
+    }
+  }
 }
 
 .title {
@@ -14,13 +38,15 @@
 
 .submit {
   background-color: $button-color--active;
+  outline: 3px solid $accent-color;
+  outline-offset: -5px;
   border: 2px solid white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 5rem;
   display: block;
   width: 100%;
 
-  @media(min-width: $breakpoint-md) {
-    display: inline-block;
+  @media(min-width: $breakpoint-lg) {
+    margin: 4rem auto 0;
     width: auto;
   }
 }
