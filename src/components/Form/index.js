@@ -63,6 +63,7 @@ const Form = ({
         ))
       }
       <button
+        className={styles.submit}
         onClick={() => handleSubmit()}
         type="button"
       >

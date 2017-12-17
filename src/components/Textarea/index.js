@@ -16,7 +16,9 @@ const Textarea = ({
       className="form-control"
       value={value}
     />
-    { question.hint && <div className="text-muted">{ question.hint }</div> }
+    { question.hint &&
+      <div className={styles.hint}>{ question.hint }</div>
+    }
   </div>
 )
 

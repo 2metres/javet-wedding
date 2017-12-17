@@ -9,11 +9,17 @@ import { createStore } from 'redux'
 import reducers from './reducers'
 import { Nav } from './components'
 
+
+if (typeof window === 'undefined') {
+  global.window = {}
+}
+
 const store = createStore(
   reducers,
   {}, // initial state
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 )
+
 const client = new ApolloClient({
   link: new HttpLink({ uri: 'https://api.graphcms.com/simple/v1/cjaneflbw334r01578tve6v3r' }),
   cache: new InMemoryCache(),

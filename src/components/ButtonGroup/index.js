@@ -30,7 +30,9 @@ const ButtonGroup = ({
         </li>))
       }
     </ul>
-    { question.hint && <div className="text-muted">{ question.hint }</div> }
+    { question.hint &&
+      <div className={styles.hint}>{ question.hint }</div>
+    }
   </div>
 )
 
