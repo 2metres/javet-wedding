@@ -70,9 +70,9 @@ class Home extends Component {
           }
         </header>
         { ui.showForm && <Form questions={questions} /> }
-        <main className={styles.content}>
-          <Timeline events={events} />
-        </main>
+        // <main className={styles.content}>
+        //   <Timeline events={events} />
+        // </main>
       </div>
     )
   }
