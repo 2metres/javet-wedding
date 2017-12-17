@@ -1,6 +1,7 @@
 @import '../../styles/variables';
 
 .root {
+  visibility: hidden;
   padding: $base-spacing;
 }
 
