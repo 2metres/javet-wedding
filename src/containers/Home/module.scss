@@ -1,9 +1,9 @@
 @import "../../styles/variables";
 
 .button {
-  background-color: $action-background;
+  background-color: $accent-color;
   font-family: $heading-font;
-  color: $action-color;
+  color: white;
   padding: 1rem 3rem;
   margin-top: 1rem;
   font-size: 150%;
@@ -16,7 +16,7 @@
 
 .header {
   text-align: center;
-  border: 0.5rem solid $action-background;
+  border: 0.5rem solid $accent-color;
   padding: calc(2vw + 2rem) 1rem;
 }
 
@@ -29,7 +29,7 @@
   &:after {
     content: '';
     display: block;
-    border-bottom: 0.25rem solid $action-background;
+    border-bottom: 0.25rem solid $accent-color;
     margin: 1rem auto 2rem;
     width: 15%;
   }

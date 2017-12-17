@@ -10,7 +10,7 @@ const ButtonGroup = ({
   value,
 }) => (
   <div className={classNames(styles.root, 'form-group')}>
-    <label htmlFor={question.slug} className={styles.title}>{ question.prompt }</label>
+    <label htmlFor={question.slug} className={styles.label}>{ question.prompt }</label>
     <ul className={styles.list}>
       { answers.map(answer => (
         <li className={styles.listItem}>

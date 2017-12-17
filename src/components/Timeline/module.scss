@@ -5,7 +5,9 @@
 
 .event {
   min-height: 100%;
-  margin: $base-spacing 0;
+  min-width: $breakpoint-sm;
+  margin: $base-spacing auto;
+  text-align: center; 
 }
 
 .eventTitle {

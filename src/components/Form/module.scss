@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .root {
-  background-color: black;
+  background-color: $accent-color;
   padding: 2rem;
   color: white;
   z-index: 3;
@@ -9,10 +9,13 @@
 }
 
 .title {
-
+  color: #D7982B;
 }
 
 .submit {
+  background-color: $button-color--active;
+  border: 2px solid white;
+  padding: 0.5rem 1rem;
   display: block;
   width: 100%;
 

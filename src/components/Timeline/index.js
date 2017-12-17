@@ -5,21 +5,12 @@ import classNames from 'classnames/bind'
 import styles from './module.scss'
 
 const Timeline = ({ events }) => (
-  <section className={styles.root}>
+  <section id="timeline" className={styles.root}>
     <div className="row">
       { events.map((event, i) => (
         <div
+          className={styles.event}
           key={`${event.slug}__${event.id}`}
-          className={
-            classNames.bind(styles)({
-              event: true,
-              // breakpoint-sm
-              'col-sm-6': i !== 0,
-              'col-sm-12': i === 0,
-              //  breakpoint-md
-              'col-md-4': true,
-            })
-          }
         >
           <h3 className={styles.eventTitle}>{ event.title }</h3>
           <div className={styles.eventTime}>{ event.time }</div>

@@ -1,8 +1,14 @@
+@import "../../styles/variables";
+
 .root {
   margin: 2rem 0;
 }
 
 .hint {
-  color: #f7f7f7;
+  color: mix(white, $accent-color, 70%);
   margin-top: 1rem;
+}
+
+.input {
+  font-size: 120%;
 }

@@ -9,7 +9,7 @@ const Textarea = ({
   value,
 }) => (
   <div className={classNames(styles.root, 'form-group')}>
-    <label htmlFor={question.slug} className={styles.title}>{ question.prompt }</label>
+    <label htmlFor={question.slug} className={styles.label}>{ question.prompt }</label>
     <textarea
       id={question.slug}
       onChange={e => action(question.slug, e.target.value)}
