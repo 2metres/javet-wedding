@@ -29,7 +29,6 @@ const App = () => (
   <ApolloProvider client={client} store={store}>
     <Router>
       <div id="content">
-        <Nav />
         <Routes />
       </div>
     </Router>

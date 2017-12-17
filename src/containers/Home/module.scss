@@ -24,12 +24,17 @@
 
 .header {
   text-align: center;
+  background-color: white;
   border: 0.5rem solid $accent-color;
   padding: calc(2vw + 2rem) 1rem;
+
+  h2 {
+    font-size: 125%;
+  }
 }
 
 .title {
-  font-size: 300%;
+  font-size: 200%;
   max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
@@ -40,6 +45,9 @@
     border-bottom: 0.25rem solid $accent-color;
     margin: 1rem auto 2rem;
     width: 6rem;
+  }
+  @media (min-width: $breakpoint-md) {
+    font-size: 300%;
   }
 }
 
