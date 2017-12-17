@@ -45,8 +45,8 @@ class Home extends Component {
               RSVP NOW!
             </button>
           }
-          { ui.showForm && <Form questions={questions} /> }
         </header>
+        { ui.showForm && <Form questions={questions} /> }
         <main className={styles.content}>
           <Timeline events={events} />
         </main>
