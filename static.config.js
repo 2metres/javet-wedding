@@ -30,6 +30,7 @@ const query =
   }`
 
 export default {
+  siteRoot: 'https://javetwedding.com',
   getSiteProps: () => ({
     site: {
       title: 'Jack & Yvette’s Wedding',

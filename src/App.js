@@ -7,8 +7,6 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { createStore } from 'redux'
 
 import reducers from './reducers'
-import { Nav } from './components'
-
 
 if (typeof window === 'undefined') {
   global.window = {}

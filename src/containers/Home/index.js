@@ -11,10 +11,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
 
-import {
-  Form,
-  Timeline,
-} from '../../components'
+import { Form } from '../../components'
 
 import styles from './module.scss'
 
@@ -24,7 +21,6 @@ class Home extends Component {
       actions,
       questions,
       homepage,
-      events,
       ui,
       site,
     } = this.props
@@ -87,13 +83,6 @@ Home.propTypes = {
     title: PropTypes.string,
     body: PropTypes.string,
   }).isRequired,
-  events: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      time: PropTypes.string,
-      icon: PropTypes.string,
-    }).isRequired,
-  ),
 }
 
 const mapStateToProps = state => ({
