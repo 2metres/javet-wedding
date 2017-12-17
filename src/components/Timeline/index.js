@@ -5,6 +5,7 @@ import styles from './module.scss'
 
 const Timeline = ({ events }) => (
   <section id="timeline" className={styles.root}>
+    <h2 className={styles.title}>What’s happening on the day</h2>
     { events.map(event => (
       <div
         className={styles.event}

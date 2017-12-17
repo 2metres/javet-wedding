@@ -9,9 +9,12 @@ import {
 } from 'react-static'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as actions from '../../actions'
 
-import { Form } from '../../components'
+import * as actions from '../../actions'
+import {
+  Form,
+  Timeline,
+} from '../../components'
 
 import styles from './module.scss'
 
@@ -21,8 +24,9 @@ class Home extends Component {
       actions,
       questions,
       homepage,
-      ui,
+      events,
       site,
+      ui,
     } = this.props
 
     return (
@@ -66,6 +70,7 @@ class Home extends Component {
           }
         </header>
         { ui.showForm && <Form questions={questions} /> }
+        <Timeline events={events}/>
       </div>
     )
   }
