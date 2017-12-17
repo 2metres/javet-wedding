@@ -14,6 +14,14 @@
   border: none;
 }
 
+.icon {
+  max-width: 8em;
+
+  :global(.primary) {
+    fill: $accent-color;
+  }
+}
+
 .header {
   text-align: center;
   border: 0.5rem solid $accent-color;
