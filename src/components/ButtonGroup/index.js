@@ -9,27 +9,28 @@ const ButtonGroup = ({
   answers,
   value,
 }) => (
-  <div className={styles.root}>
-    <label htmlFor={question.slug} className={styles.title}>
-      { question.prompt }
-    </label>
-    <div className={styles.list}>
+  <div className={classNames(styles.root, 'form-group')}>
+    <label htmlFor={question.slug} className={styles.title}>{ question.prompt }</label>
+    <ul className={styles.list}>
       { answers.map(answer => (
-        <button
-          key={`${question.slug}--${answer.key}`}
-          type="button"
-          onClick={() => action(question.slug, answer.value)}
-          className={
-            classNames.bind(styles)({
-              'btn': true,
-              'btn-primary': (value === answer.value) || null,
-            })
-          }
-        >
-          { answer.key }
-        </button>))
+        <li className={styles.listItem}>
+          <button
+            key={`${question.slug}--${answer.key}`}
+            type="button"
+            onClick={() => action(question.slug, answer.value)}
+            className={
+              classNames.bind(styles)({
+                button: true,
+                active: (value === answer.value) || null,
+              })
+            }
+          >
+            { answer.key }
+          </button>
+        </li>))
       }
-    </div>
+    </ul>
+    { question.hint && <div className="text-muted">{ question.hint }</div> }
   </div>
 )
 

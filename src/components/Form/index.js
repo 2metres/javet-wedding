@@ -35,38 +35,34 @@ const Form = ({
   return (
     <form className={styles.root}>
       {
-        questions.map(question => (
-          <div key={`${question.slug}--${question.format}`}>
-            { form.dietaryRestrictions && question.format === 'Textarea' &&
+        questions.map(q => (
+          <div key={`${q.slug}--${q.format}`}>
+            { form.dietaryRestrictions && q.format === 'Textarea' &&
               <Textarea
                 action={handleInput}
-                value={form[question.slug]}
-                question={question}
+                value={form[q.slug]}
+                question={q}
               />
             }
-            { question.format === 'TextInput' &&
+            { q.format === 'TextInput' &&
               <TextInput
                 action={handleInput}
-                value={form[question.slug]}
-                question={question}
+                value={form[q.slug]}
+                question={q}
               />
             }
-            { question.format === 'YesNo' &&
+            { q.format === 'YesNo' &&
               <ButtonGroup
                 answers={constants.YES_NO}
-                question={question}
+                question={q}
                 action={handleInput}
-                value={form[question.slug]}
+                value={form[q.slug]}
               />
-            }
-            { question.hint &&
-              <small className="text-muted">{ question.hint }</small>
             }
           </div>
         ))
       }
       <button
-        className="btn btn-primary"
         onClick={() => handleSubmit()}
         type="button"
       >

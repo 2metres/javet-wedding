@@ -1,5 +1,10 @@
 @import url("https://use.typekit.net/qze7sbb.css");
 
+body {
+  font-family: $heading-font;
+  font-weight: 300;
+}
+
 h1, h2, h3 {
   font-family: $heading-font;
   line-height: 1.1;

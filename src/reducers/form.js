@@ -7,7 +7,9 @@ const formReducer = handleActions(
     },
   },
   // initialState
-  {},
+  {
+    dietaryRestrictionDescription: ' ',
+  },
 )
 
 export default formReducer

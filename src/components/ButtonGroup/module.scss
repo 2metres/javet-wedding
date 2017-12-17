@@ -1,8 +1,34 @@
+@import "../../styles/variables";
+
 .root {
-  display: inherit;
+  margin: 2rem 0;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: $breakpoint-sm;
+  }
+}
+
+.listItem {
+  flex: auto;
+
+  &:nth-child(2n) {
+    margin-left: 1rem;
+  }
 }
 
 .button {
+  display: block;
+  width: 100%;
+
   &.active {
+    background-color: #007DFF;
+    color: white;
   }
 }
