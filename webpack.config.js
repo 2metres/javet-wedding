@@ -38,6 +38,10 @@ export default (config, { stage, defaultLoaders }) => {
           ],
         }),
       },
+      {
+        test: /\.svg$/,
+        use: 'svg-inline-loader',
+      },
       defaultLoaders.fileLoader,
     ],
   }]

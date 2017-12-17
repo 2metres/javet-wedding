@@ -1,7 +1,9 @@
 @import '../../styles/variables';
 
 .root {
-  background-color: white;
+  border: 0.5rem solid white;
+  background-color: $secondary-color;
+  color: white;
   text-align: center;
   padding: 2rem;
 
@@ -12,6 +14,16 @@
 
 .title {
   margin-bottom: 3rem;
+}
+
+.icon {
+  display: block;
+  max-width: 70%;
+  margin: auto;
+
+  :global(.primary) {
+    fill: white;
+  }
 }
 
 .event {
