@@ -11,7 +11,7 @@ const Timeline = ({ events }) => (
     <div className="row">
       { events.map(event => (
         <div
-          className={classNames(styles.event, 'col-md-3')}
+          className={classNames(styles.event, 'col-md-4')}
           key={`${event.slug}__${event.id}`}
         >
           <picture
