@@ -20,7 +20,7 @@ const Timeline = ({ events }) => (
             className={styles.icon}
           />
           <h3 className={styles.eventTitle}>{ event.title }</h3>
-          <div className={styles.eventTime}>{ event.time }</div>
+          <h4 className={styles.eventTime}>{ event.time }</h4>
         </div>))
       }
     </div>
