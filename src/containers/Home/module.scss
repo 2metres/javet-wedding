@@ -15,10 +15,14 @@
 }
 
 .icon {
+  display: block;
+  margin: auto;
   max-width: 8em;
 
-  :global(.primary) {
-    fill: $accent-color;
+  svg {
+    :global(.primary) {
+      fill: $accent-color;
+    }
   }
 }
 
