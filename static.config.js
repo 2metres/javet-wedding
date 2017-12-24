@@ -36,9 +36,7 @@ const query =
 export default {
   siteRoot: process.env.SITE_ROOT_URL,
   getSiteProps: () => ({
-    site: {
-      title: 'Jack & Yvette’s Wedding',
-    },
+    site: { title: 'Jack & Yvette’s Wedding' },
   }),
   getRoutes: async () => {
     const {
