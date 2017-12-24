@@ -7,6 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { createStore } from 'redux'
 
 import reducers from './reducers'
+import Nav from './components/Nav'
 
 if (typeof window === 'undefined') {
   global.window = {}
@@ -27,6 +28,7 @@ const App = () => (
   <ApolloProvider client={client} store={store}>
     <Router>
       <div id="content">
+        <Nav />
         <Routes />
       </div>
     </Router>

@@ -13,6 +13,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions'
 import * as icons from '../../assets'
 import {
+  FAQs,
   Form,
   Timeline,
 } from '../../components'
@@ -26,6 +27,7 @@ class Home extends Component {
       questions,
       homepage,
       events,
+      faqs,
       site,
       ui,
     } = this.props
@@ -54,6 +56,7 @@ class Home extends Component {
         </header>
         { ui.showForm && <Form questions={questions} /> }
         <Timeline events={events} />
+        <FAQs items={faqs} />
       </div>
     )
   }

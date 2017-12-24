@@ -27,10 +27,14 @@ const query =
       title
       slug
     }
+    faqs: allFAQs (orderBy: order_ASC) {
+      title
+      body
+    }
   }`
 
 export default {
-  siteRoot: 'https://javetwedding.com',
+  siteRoot: process.env.SITE_ROOT_URL,
   getSiteProps: () => ({
     site: {
       title: 'Jack & Yvette’s Wedding',
@@ -42,6 +46,7 @@ export default {
       questions,
       homepages,
       events,
+      faqs,
     } = await request(process.env.GRAPHCMS_API, query)
 
     return [
@@ -52,6 +57,7 @@ export default {
           homepage: homepages[0],
           questions,
           events,
+          faqs,
           nav,
         }),
       },

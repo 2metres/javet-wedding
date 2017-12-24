@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+.root {
+  border: 0.5rem solid $green;
+  background-color: white;
+  padding: 2rem;
+}
+
+.title {
+  text-align: center;
+  color: $green;
+
+  &:after {
+    content: '';
+    display: block;
+    border-bottom: 0.25rem solid $green;
+    margin: 1rem auto 2rem;
+    width: 6rem;
+  }
+}
+
+.item {
+
+}
+
+.itemTitle {
+  color: $green;
+}
+
+.itemBody {}

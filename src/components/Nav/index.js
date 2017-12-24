@@ -8,14 +8,12 @@ const Nav = ({ nav }) => (
   <nav className={styles.root}>
     <div className="container">
       <ol className={styles.list}>
-        {
-          nav.map(item => (
-            <li key={item.slug} className={styles.item}>
-              <Link className={styles.link} to={`#${item.slug}`} >
-                {item.title}
-              </Link>
-            </li>
-          ))
+        { nav.map(item => (
+          <li key={item.slug} className={styles.item}>
+            <Link className={styles.link} to={`#${item.slug}`} >
+              {item.title}
+            </Link>
+          </li>))
         }
       </ol>
     </div>
